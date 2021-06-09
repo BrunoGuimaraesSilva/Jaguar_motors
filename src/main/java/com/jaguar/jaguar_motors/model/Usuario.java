@@ -1,36 +1,40 @@
 package com.jaguar.jaguar_motors.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
 public class Usuario {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Integer id;
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Integer id_usuario;
 
+    @NotNull(message = "Erro ao salvar o nome")
     @Column(nullable = false)
     private String nome;
 
+    @NotNull(message = "Erro ao salvar o sobrenome")
     @Column(nullable = false)
     private String sobrenome;
 
+    @NotNull(message = "Erro ao salvar o email")
     @Column(nullable = false, unique = true)
     private String email;
 
+    @NotNull(message = "Erro ao salvar o data_nascimento")
     @Column(nullable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate data_nascimento;
 
-    public Integer getId() {
-        return id;
+    public Integer getId_usuario() {
+        return id_usuario;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId_usuario(Integer id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
     public String getNome() {

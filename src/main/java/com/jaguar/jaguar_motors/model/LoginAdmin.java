@@ -1,27 +1,30 @@
 package com.jaguar.jaguar_motors.model;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class LoginAdmin {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Integer id;
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Long id;
 
+    @NotNull(message = "Erro ao salvar o login")
     @Column(nullable = false, unique = true)
     private String login;
 
+    @NotNull(message = "Erro ao salvar a senha")
     @Column(nullable = false)
     private String senha;
 
-    @OneToOne
-    @JoinColumn(nullable = false, unique = true)
-    private Usuario usuario;
+    @NotNull(message = "Erro ao salvar o id_usuario")
+    @Column(nullable = false)
+    private Integer id_usuario;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -39,5 +42,13 @@ public class LoginAdmin {
 
     public void setLogin(String login) {
         this.login = login;
+    }
+
+    public Integer getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(Integer id_usuario) {
+        this.id_usuario = id_usuario;
     }
 }

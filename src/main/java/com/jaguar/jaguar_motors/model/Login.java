@@ -1,25 +1,28 @@
 package com.jaguar.jaguar_motors.model;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Login {
+
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
+    @NotNull(message = "Erro ao salvar o login")
     @Column(nullable = false, unique = true)
     private String login;
 
+    @NotNull(message = "Erro ao salvar a senha")
     @Column(nullable = false)
     private String senha;
 
-    @OneToOne
-    @JoinColumn(nullable = false, unique = true)
-    private Usuario usuario;
+    @NotNull(message = "Erro ao salvar o id_usuario")
+    @Column(nullable = false)
+    private Integer id_usuario;
 
-    public Integer getId() {
-        return id;
-    }
+    public Integer getId() { return id; }
 
     public void setId(Integer id) {
         this.id = id;
@@ -40,4 +43,13 @@ public class Login {
     public void setLogin(String login) {
         this.login = login;
     }
+
+    public Integer getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(Integer id_usuario) {
+        this.id_usuario = id_usuario;
+    }
+
 }

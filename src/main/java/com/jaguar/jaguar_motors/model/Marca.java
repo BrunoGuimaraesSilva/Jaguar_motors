@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 public class Marca {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false, unique = true)
@@ -24,6 +24,5 @@ public class Marca {
     public void setMarca(String marca) {
         this.marca = marca;
     }
-
 
 }
