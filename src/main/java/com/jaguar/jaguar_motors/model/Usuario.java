@@ -10,7 +10,7 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer id_usuario;
+    private Long id_usuario;
 
     @NotNull(message = "Erro ao salvar o nome")
     @Column(nullable = false)
@@ -29,11 +29,11 @@ public class Usuario {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate data_nascimento;
 
-    public Integer getId_usuario() {
+    public Long getId_usuario() {
         return id_usuario;
     }
 
-    public void setId_usuario(Integer id_usuario) {
+    public void setId_usuario(Long id_usuario) {
         this.id_usuario = id_usuario;
     }
 
