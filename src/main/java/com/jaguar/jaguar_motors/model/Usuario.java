@@ -29,15 +29,16 @@ public class Usuario {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate data_nascimento;
 
-    public Long getId_usuario() {
-        return id_usuario;
-    }
+    
+	public Long getId_usuario() {
+		return id_usuario;
+	}
 
-    public void setId_usuario(Long id_usuario) {
-        this.id_usuario = id_usuario;
-    }
+	public void setId_usuario(Long id_usuario) {
+		this.id_usuario = id_usuario;
+	}
 
-    public String getNome() {
+	public String getNome() {
         return nome;
     }
 

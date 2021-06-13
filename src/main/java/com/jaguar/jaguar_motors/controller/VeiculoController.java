@@ -41,7 +41,7 @@ public class VeiculoController {
     }
 
     @RequestMapping(value = "/veiculo/{id}", method =  RequestMethod.PUT)
-    public ResponseEntity<Veiculo> Put(@PathVariable(value = "id") Integer id, @Valid @RequestBody Veiculo newVeiculo)
+    public ResponseEntity<Veiculo> Put(@PathVariable(value = "id") Long id, @Valid @RequestBody Veiculo newVeiculo)
     {
         Optional<Veiculo> oldVeiculo = veiculoRepository.findById(id);
         if(oldVeiculo.isPresent()){
